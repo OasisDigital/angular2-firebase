@@ -1,19 +1,18 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "module": "commonjs",
+    "module": "CommonJS",
     "noImplicitAny": true,
-    "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "declaration": true,
-    "outDir": "dist"
+    "declaration": true
   },
   "files": [
-    "src/ngWhen.ts",
-    "typings/firebase/firebase.d.ts",
-    "src/observableFirebase.ts"
+    "index.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

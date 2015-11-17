@@ -1,27 +1,19 @@
 {
   "name": "angular2-firebase",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Angular 2 Adapter for Firebase",
   "keywords": ["angular2", "firebase"],
   "repository": "https://github.com/OasisDigital/angular2-firebase",
-  "main": "dist/example.js",
+  "main": "dist/angular2-firebase.js",
   "scripts": {
-    "preinstall": "npm install autodts",
-    "postinstall": "autodts link",
-    "prepublish": "tsc && autodts generate",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "tsc"
   },
   "author": "Kyle Cordes <kyle.cordes@oasisdigital.com>",
   "license": "Apache-2.0",
-  "typescript": {
-    "definition": "index.d.ts"
-  },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.46",
-    "autodts": "~0.0.4"
+    "angular2": "^2.0.0-alpha.46"
   },
   "devDependencies": {
-    "@lib/autodts-generator": "~0.0.1",
     "typescript": "~1.6.2"
   }
 }

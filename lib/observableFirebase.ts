@@ -9,6 +9,8 @@
 // "arrays", it understands the conventions use their to make an observable
 // that yields an array with each change.
 
+/// <reference path = "../typings/firebase/firebase.d.ts" />
+
 // TODO understand TypeScript generics more fully, seek advice from a guru.
 
 // TODO Further polish this, publish as a reusable library.

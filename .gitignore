@@ -1,5 +1,7 @@
 node_modules/
 dist/
-*.d.ts
 *.log
 *.tgz
+*.d.ts
+*.js
+*.map
