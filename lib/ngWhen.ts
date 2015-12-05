@@ -4,12 +4,7 @@
 // November 2015
 
 import {Directive} from 'angular2/src/core/metadata';
-import {DoCheck} from 'angular2/lifecycle_hooks';
-import {
-  ChangeDetectorRef,
-  IterableDiffer,
-  IterableDiffers
-} from 'angular2/src/core/change_detection';
+import {DoCheck} from 'angular2/core';
 import {ViewContainerRef, TemplateRef, ViewRef} from 'angular2/src/core/linker';
 import {isPresent, isBlank} from 'angular2/src/facade/lang';
 
@@ -60,12 +55,12 @@ import {isPresent, isBlank} from 'angular2/src/facade/lang';
  * See a [live demo](TODO) for a more detailed
  * example.
  */
-@Directive({selector: '[ng-when][ng-when-is]', inputs: ['ngWhenIs', 'ngWhenTemplate']})
-export class NgWhen  {
+@Directive({ selector: '[ng-when][ng-when-is]', inputs: ['ngWhenIs', 'ngWhenTemplate'] })
+export class NgWhen {
   /** @internal */
   private _prevCondition: boolean = null;
 
-  constructor(private _viewContainer: ViewContainerRef, private _templateRef: TemplateRef) {}
+  constructor(private _viewContainer: ViewContainerRef, private _templateRef: TemplateRef) { }
 
   set ngWhenIs(newCondition: any) {
     if (newCondition && (isBlank(this._prevCondition) || !this._prevCondition)) {
