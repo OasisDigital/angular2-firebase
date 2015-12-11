@@ -55,7 +55,7 @@ import {isPresent, isBlank} from 'angular2/src/facade/lang';
  * See a [live demo](TODO) for a more detailed
  * example.
  */
-@Directive({ selector: '[ng-when][ng-when-is]', inputs: ['ngWhenIs', 'ngWhenTemplate'] })
+@Directive({ selector: '[ngWhen][ngWhenIs]', inputs: ['ngWhenIs', 'ngWhenTemplate'] })
 export class NgWhen {
   /** @internal */
   private _prevCondition: boolean = null;
