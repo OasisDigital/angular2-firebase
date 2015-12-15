@@ -20,7 +20,7 @@ Many areas are still under consideration and development:
 
 ## How to Consume
 
-As a version 0.0.3, it will generally "just work" with typescript and webpack.
+It will generally "just work" with typescript and webpack.
 Other combinations might work, but still need attention.
 
 As far as I can tell, Typescript with NPM modules is still a topic of much

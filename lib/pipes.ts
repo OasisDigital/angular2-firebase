@@ -1,4 +1,5 @@
-import {Pipe, PipeTransform, Observable} from 'angular2/angular2';
+import {Pipe, PipeTransform} from 'angular2/core';
+import {Observable} from 'rxjs/Observable';
 
 import {observableFirebaseObject, observableFirebaseArray} from './observableFirebase';
 

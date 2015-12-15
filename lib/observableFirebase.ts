@@ -17,7 +17,7 @@
 
 // TODO determine if the safe copies are compatible with performant Angular 2.
 
-import { Observable } from 'angular2/angular2';
+import {Observable} from 'rxjs/Observable';
 
 // TODO How do I type this without adding another dependency on @reactivex/rxjs?
 // import { Subscriber } from '@reactivex/rxjs/dist/cjs/Rx';
