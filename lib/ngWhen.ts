@@ -4,7 +4,7 @@
 // November 2015
 
 import {Directive} from 'angular2/src/core/metadata';
-import {DoCheck} from 'angular2/core';
+import {DoCheck, ChangeDetectorRef} from 'angular2/core';
 import {ViewContainerRef, TemplateRef, ViewRef} from 'angular2/src/core/linker';
 import {isPresent, isBlank} from 'angular2/src/facade/lang';
 
@@ -55,20 +55,32 @@ import {isPresent, isBlank} from 'angular2/src/facade/lang';
  * See a [live demo](TODO) for a more detailed
  * example.
  */
+
+function presentNotFalse(x: any) {
+  return isPresent(x) && x !== false;
+}
+
 @Directive({ selector: '[ngWhen][ngWhenIs]', inputs: ['ngWhenIs', 'ngWhenTemplate'] })
 export class NgWhen {
   /** @internal */
-  private _prevCondition: boolean = null;
+  private _prevCondition: any = null;
+  // TODO remove _prevCondition, the viewRef is enough.
+  private _viewRef: ViewRef = null;
 
-  constructor(private _viewContainer: ViewContainerRef, private _templateRef: TemplateRef) { }
+  constructor(private _viewContainer: ViewContainerRef, private _templateRef: TemplateRef,
+              private _cdr: ChangeDetectorRef) { }
 
   set ngWhenIs(newCondition: any) {
-    if (newCondition && (isBlank(this._prevCondition) || !this._prevCondition)) {
-      this._prevCondition = true;
-      this._viewContainer.createEmbeddedView(this._templateRef).setLocal('\$implicit', newCondition);
-    } else if (!newCondition && (isBlank(this._prevCondition) || this._prevCondition)) {
-      this._prevCondition = false;
+    if (presentNotFalse(newCondition) && !presentNotFalse(this._prevCondition)) {
+      this._viewRef = this._viewContainer.createEmbeddedView(this._templateRef);
+      this._viewRef.setLocal('\$implicit', newCondition);
+    } else if (!presentNotFalse(newCondition) && presentNotFalse(this._prevCondition)) {
       this._viewContainer.clear();
+      this._viewRef = null;
+    }
+    this._prevCondition = newCondition;
+    if (presentNotFalse(newCondition)) {
+      this._viewRef.setLocal('\$implicit', newCondition);
     }
   }
 
