@@ -1,6 +1,6 @@
 {
   "name": "angular2-firebase",
-  "version": "0.0.7",
+  "version": "0.5.0",
   "description": "Angular 2 Adapter for Firebase",
   "keywords": [
     "angular2",
@@ -14,8 +14,9 @@
   "author": "Kyle Cordes <kyle.cordes@oasisdigital.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "angular2": "^2.0.0-alpha.53",
-    "rxjs": "^5.0.0-alpha.14"
+    "angular2": "^2.0.0-beta.0",
+    "rxjs": "^5.0.0-beta.0",
+    "zone.js": "^0.5.10"
   },
   "devDependencies": {
     "typescript": "~1.7.5"
