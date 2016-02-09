@@ -69,30 +69,30 @@ interface FirebaseOnDisconnect {
 	 * (due to closing the browser, navigating to a new page, or network issues).
 	 */
 	set(value: any, onComplete: (error: any) => void): void;
-	set(value: any): Promise;
+	set(value: any): Promise<any>;
 	/**
 	 * Ensures the data at this location is set to the specified value and priority when the client is disconnected
 	 * (due to closing the browser, navigating to a new page, or network issues).
 	 */
 	setWithPriority(value: any, priority: string|number, onComplete?: (error: any) => void): void;
-	setWithPriority(value: any, priority: string|number): Promise;
+	setWithPriority(value: any, priority: string|number): Promise<any>;
 	/**
 	 * Writes the enumerated children at this Firebase location when the client is disconnected
 	 * (due to closing the browser, navigating to a new page, or network issues).
 	 */
 	update(value: Object, onComplete?: (error: any) => void): void;
-	update(value: Object): Promise;
+	update(value: Object): Promise<any>;
 	/**
 	 * Ensures the data at this location is deleted when the client is disconnected
 	 * (due to closing the browser, navigating to a new page, or network issues).
 	 */
 	remove(onComplete?: (error: any) => void): void;
-	remove(): Promise;
+	remove(): Promise<any>;
 	/**
 	 * Cancels all previously queued onDisconnect() set or update events for this location and all children.
 	 */
 	cancel(onComplete?: (error: any) => void): void;
-	cancel(): Promise;
+	cancel(): Promise<any>;
 }
 
 interface FirebaseQuery {
@@ -237,32 +237,32 @@ interface Firebase extends FirebaseQuery {
 	 * Writes data to this Firebase location.
 	 */
 	set(value: any, onComplete: (error: any) => void): void;
-	set(value: any): Promise;
+	set(value: any): Promise<any>;
 	/**
 	 * Writes the enumerated children to this Firebase location.
 	 */
 	update(value: Object, onComplete?: (error: any) => void): void;
-	update(value: Object): Promise;
+	update(value: Object): Promise<any>;
 	/**
 	 * Removes the data at this Firebase location.
 	 */
 	remove(onComplete?: (error: any) => void): void;
-	remove(): Promise;
+	remove(): Promise<any>;
 	/**
 	 * Generates a new child location using a unique name and returns a Firebase reference to it.
 	 * @returns {Firebase} A Firebase reference for the generated location.
 	 */
-	push(value?: any, onComplete?: (error: any) => void): Firebase|Promise;
+	push(value?: any, onComplete?: (error: any) => void): Firebase|Promise<any>;
 	/**
 	 * Writes data to this Firebase location. Like set() but also specifies the priority for that data.
 	 */
 	setWithPriority(value: any, priority: string|number, onComplete?: (error: any) => void): void;
-	setWithPriority(value: any, priority: string|number): Promise;
+	setWithPriority(value: any, priority: string|number): Promise<any>;
 	/**
 	 * Sets a priority for the data at this Firebase location.
 	 */
 	setPriority(priority: string|number, onComplete?: (error: any) => void): void;
-	setPriority(priority: string|number): Promise;
+	setPriority(priority: string|number): Promise<any>;
 	/**
 	 * Atomically modifies the data at this location.
 	 */
