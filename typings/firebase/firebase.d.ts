@@ -68,27 +68,31 @@ interface FirebaseOnDisconnect {
 	 * Ensures the data at this location is set to the specified value when the client is disconnected
 	 * (due to closing the browser, navigating to a new page, or network issues).
 	 */
-	set(value: any, onComplete?: (error: any) => void): void;
+	set(value: any, onComplete: (error: any) => void): void;
+	set(value: any): Promise;
 	/**
 	 * Ensures the data at this location is set to the specified value and priority when the client is disconnected
 	 * (due to closing the browser, navigating to a new page, or network issues).
 	 */
-	setWithPriority(value: any, priority: string, onComplete?: (error: any) => void): void;
-	setWithPriority(value: any, priority: number, onComplete?: (error: any) => void): void;
+	setWithPriority(value: any, priority: string|number, onComplete?: (error: any) => void): void;
+	setWithPriority(value: any, priority: string|number): Promise;
 	/**
 	 * Writes the enumerated children at this Firebase location when the client is disconnected
 	 * (due to closing the browser, navigating to a new page, or network issues).
 	 */
 	update(value: Object, onComplete?: (error: any) => void): void;
+	update(value: Object): Promise;
 	/**
 	 * Ensures the data at this location is deleted when the client is disconnected
 	 * (due to closing the browser, navigating to a new page, or network issues).
 	 */
 	remove(onComplete?: (error: any) => void): void;
+	remove(): Promise;
 	/**
 	 * Cancels all previously queued onDisconnect() set or update events for this location and all children.
 	 */
 	cancel(onComplete?: (error: any) => void): void;
+	cancel(): Promise;
 }
 
 interface FirebaseQuery {
