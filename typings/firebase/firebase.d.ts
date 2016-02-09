@@ -236,30 +236,33 @@ interface Firebase extends FirebaseQuery {
 	/**
 	 * Writes data to this Firebase location.
 	 */
-	set(value: any, onComplete?: (error: any) => void): void;
+	set(value: any, onComplete: (error: any) => void): void;
+	set(value: any): Promise;
 	/**
 	 * Writes the enumerated children to this Firebase location.
 	 */
 	update(value: Object, onComplete?: (error: any) => void): void;
+	update(value: Object): Promise;
 	/**
 	 * Removes the data at this Firebase location.
 	 */
 	remove(onComplete?: (error: any) => void): void;
+	remove(): Promise;
 	/**
 	 * Generates a new child location using a unique name and returns a Firebase reference to it.
 	 * @returns {Firebase} A Firebase reference for the generated location.
 	 */
-	push(value?: any, onComplete?: (error: any) => void): Firebase;
+	push(value?: any, onComplete?: (error: any) => void): Firebase|Promise;
 	/**
 	 * Writes data to this Firebase location. Like set() but also specifies the priority for that data.
 	 */
-	setWithPriority(value: any, priority: string, onComplete?: (error: any) => void): void;
-	setWithPriority(value: any, priority: number, onComplete?: (error: any) => void): void;
+	setWithPriority(value: any, priority: string|number, onComplete?: (error: any) => void): void;
+	setWithPriority(value: any, priority: string|number): Promise;
 	/**
 	 * Sets a priority for the data at this Firebase location.
 	 */
-	setPriority(priority: string, onComplete?: (error: any) => void): void;
-	setPriority(priority: number, onComplete?: (error: any) => void): void;
+	setPriority(priority: string|number, onComplete?: (error: any) => void): void;
+	setPriority(priority: string|number): Promise;
 	/**
 	 * Atomically modifies the data at this location.
 	 */
