@@ -4,7 +4,7 @@
 // November 2015
 
 import {Directive} from 'angular2/src/core/metadata';
-import {DoCheck, ChangeDetectorRef} from 'angular2/core';
+import {DoCheck, ChangeDetectorRef, EmbeddedViewRef} from 'angular2/core';
 import {ViewContainerRef, TemplateRef, ViewRef} from 'angular2/src/core/linker';
 import {isPresent, isBlank} from 'angular2/src/facade/lang';
 
@@ -65,7 +65,7 @@ export class NgWhen {
   /** @internal */
   private _prevCondition: any = null;
   // TODO remove _prevCondition, the viewRef is enough.
-  private _viewRef: ViewRef = null;
+  private _viewRef: EmbeddedViewRef = null;
 
   constructor(private _viewContainer: ViewContainerRef, private _templateRef: TemplateRef,
               private _cdr: ChangeDetectorRef) { }
