@@ -10,6 +10,7 @@
   "main": "dist/angular2-firebase.js",
   "scripts": {
     "prepublish": "tsc --target es6"
+    "postinstall": "tsc --target es6"
   },
   "author": "Kyle Cordes <kyle.cordes@oasisdigital.com>",
   "license": "Apache-2.0",
