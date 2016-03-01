@@ -20,6 +20,6 @@
     "zone.js": "0.5.14"
   },
   "devDependencies": {
-    "typescript": "~1.7.5"
+    "typescript": "1.7.5"
   }
 }
