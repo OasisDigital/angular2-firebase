@@ -9,7 +9,7 @@
   "repository": "https://github.com/OasisDigital/angular2-firebase",
   "main": "dist/angular2-firebase.js",
   "scripts": {
-    "prepublish": "tsc --target es6"
+    "prepublish": "tsc --target es6",
     "postinstall": "tsc --target es6"
   },
   "author": "Kyle Cordes <kyle.cordes@oasisdigital.com>",
