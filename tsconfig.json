@@ -10,9 +10,9 @@
     "declaration": true
   },
   "files": [
-    "index.ts"
-  ],
-  "exclude": [
-    "node_modules"
+    "index.ts",
+    "typings/browser.d.ts",
+    "node_modules/angular2/typings/browser.d.ts",
+    "node_modules/zone.js/dist/zone.js.d.ts"
   ]
 }

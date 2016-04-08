@@ -1,15 +1,13 @@
 // Angular 2 Toolkit - Firebase Observables
-// Copyright 2015 Oasis Digital - http://oasisdigital.com
+// Copyright 2015-2016 Oasis Digital - http://oasisdigital.com
 //     written by Kyle Cordes - http://kylecordes.com
-// November 2015
+// started November 2015
 
 // This is a first draft at two different translations of a Firebase query
 // to an Observable. One is suitable for "leaf" objects, these are watched
 // as a unit and replaced with each update. The other is suitable for Firebase
 // "arrays", it understands the conventions use their to make an observable
 // that yields an array with each change.
-
-/// <reference path = "../typings/firebase/firebase.d.ts" />
 
 // TODO understand TypeScript generics more fully, seek advice from a guru.
 
@@ -34,6 +32,15 @@ export function observableFirebaseObject<T>(ref: FirebaseQuery): Observable<T> {
   });
 }
 
+function findInArray<T>(list: T[], predicate: Function) {
+  for (var i = 0; i < list.length; i++) {
+    const value: T = list[i];
+    if (predicate.call(this, value, i, list)) {
+      return value;
+    }
+  }
+}
+
 export function observableFirebaseArray<T>(ref: FirebaseQuery): Observable<T[]> {
 
   return Observable.create(function(observer: any) {
@@ -44,7 +51,7 @@ export function observableFirebaseArray<T>(ref: FirebaseQuery): Observable<T[]> 
     function child_added(snapshot: FirebaseDataSnapshot, prevChildKey: string) {
       let child = snapshot.val();
       child[keyFieldName] = snapshot.key();
-      let prevEntry = arr.find((y) => y[keyFieldName] === prevChildKey);
+      let prevEntry = findInArray(arr, (y: any) => y[keyFieldName] === prevChildKey);
       arr.splice(arr.indexOf(prevEntry) + 1, 0, child);
       observer.next(arr.slice()); // Safe copy
     }
@@ -53,7 +60,7 @@ export function observableFirebaseArray<T>(ref: FirebaseQuery): Observable<T[]> 
       let key = snapshot.key();
       let child = snapshot.val();
       // TODO replace object rather than mutate it?
-      let x = arr.find((y) => y[keyFieldName] === key);
+      let x = findInArray(arr, (y: any) => y[keyFieldName] === key);
       if (x) {
         for (var k in child) x[k] = child[k];
       }
@@ -63,7 +70,7 @@ export function observableFirebaseArray<T>(ref: FirebaseQuery): Observable<T[]> 
     function child_removed(snapshot: FirebaseDataSnapshot) {
       let key = snapshot.key();
       let child = snapshot.val();
-      let x = arr.find((y) => y[keyFieldName] === key);
+      let x = findInArray(arr, (y: any) => y[keyFieldName] === key);
       if (x) {
         arr.splice(arr.indexOf(x), 1);
       }
@@ -75,12 +82,12 @@ export function observableFirebaseArray<T>(ref: FirebaseQuery): Observable<T[]> 
       let child = snapshot.val();
       child[keyFieldName] = key;
       // Remove from old slot
-      let x = arr.find((y) => y[keyFieldName] === key);
+      let x = findInArray(arr, (y: any) => y[keyFieldName] === key);
       if (x) {
         arr.splice(arr.indexOf(x), 1);
       }
       // Add in new slot
-      let prevEntry = arr.find((y) => y[keyFieldName] === prevChildKey);
+      let prevEntry = findInArray(arr, (y: any) => y[keyFieldName] === prevChildKey);
       if (prevEntry) {
         arr.splice(arr.indexOf(prevEntry) + 1, 0, child);
       } else {

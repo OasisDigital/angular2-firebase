@@ -1,0 +1,5 @@
+{
+  "ambientDependencies": {
+    "firebase": "registry:dt/firebase#2.4.1+20160316155526"
+  }
+}

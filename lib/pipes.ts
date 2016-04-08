@@ -1,3 +1,8 @@
+// Angular 2 Toolkit - Firebase Observable Pipes
+// Copyright 2015-2016 Oasis Digital - http://oasisdigital.com
+//     written by Kyle Cordes - http://kylecordes.com
+// started November 2015
+
 import {Pipe, PipeTransform} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 

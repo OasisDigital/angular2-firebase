@@ -1,7 +1,7 @@
 // Angular 2 Toolkit - ngWhen
-// Copyright 2015 Oasis Digital - http://oasisdigital.com
+// Copyright 2015-2016 Oasis Digital - http://oasisdigital.com
 //     written by Kyle Cordes - http://kylecordes.com
-// November 2015
+// started November 2015
 
 import {Directive} from 'angular2/src/core/metadata';
 import {DoCheck, ChangeDetectorRef, EmbeddedViewRef} from 'angular2/core';

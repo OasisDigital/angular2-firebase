@@ -4,7 +4,8 @@ This library is a work in progress, looking for the best idioms
 to use Firebase from Angular 2. The goal is to treat the Firebase
 API as a low-level layer, and build something on top of it such
 that application code can be more concise.
-An application should be able to consume data without caring
+
+An application should be able to consume data *without* caring
 about the on() Firebase API, Firebase events, or the
 object-as-pseudo-array convention.
 
@@ -27,7 +28,7 @@ https://github.com/OasisDigital/angular2-firebase-demo
 ## Why Observables? Why the async pipe?
 
 By wrapping the firebase API behind Observables,
-then consuming those Observables via an async pipe,
+then consuming those Observables typically via an async pipe,
 it should never be necessary to manually subscribe
 and unsubscribe the Observables,
 nor manually hook and unhook Firebase events.
@@ -43,14 +44,19 @@ Other combinations might work, but still need attention.
 As far as I can tell, Typescript with NPM modules is still a topic of much
 discussion and work. Some examples suggest shipping only the Typescript code,
 but then the package can only be consumed by a project using typescript.
-Others suggest shipping the compiled code also, as is done here.
 
-The situation is worse with "typing" files. To get a clean compilation
-it was necessary to include the firebase typing in this module; but that
-can conflict if you also include that same firebase typing in the
-application consuming this module. The ultimate answer is that projects
-should ship their own TypeScript typings; as of version 2.3.1 the
-Firebase NPM module does not include its typings.
+Others suggest shipping the compiled code also, as is done here.
+There are varying suggestions as to whether to compile library TypeScript
+to ES5 or ES6; this library delivers ES5 for best browser compatibility.
+
+Older versions of this library included typings for Firebase;
+the "typings" and related tooling have made that obsolete.
+Use typings or other means to obtain the Firebase .d.ts file,
+and include it in your project.
+
+For examples of working tsconfig and typings, see the demo:
+
+https://github.com/OasisDigital/angular2-firebase-demo
 
 
 Kyle Cordes
