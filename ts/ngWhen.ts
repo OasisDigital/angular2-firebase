@@ -3,10 +3,15 @@
 //     written by Kyle Cordes - http://kylecordes.com
 // started November 2015
 
-import {Directive} from 'angular2/src/core/metadata';
-import {DoCheck, ChangeDetectorRef, EmbeddedViewRef} from 'angular2/core';
-import {ViewContainerRef, TemplateRef, ViewRef} from 'angular2/src/core/linker';
-import {isPresent, isBlank} from 'angular2/src/facade/lang';
+import {Directive} from '@angular/core';
+import {DoCheck, ChangeDetectorRef, EmbeddedViewRef} from '@angular/core';
+import {ViewContainerRef, TemplateRef, ViewRef} from '@angular/core';
+import {isPresent, isBlank} from '@angular/common/src/facade/lang';
+
+
+export class NgWhenPayload {
+  constructor(public $implicit: any) { }
+}
 
 /**
  * TODO document this like NgIf and NgFor,
@@ -65,26 +70,26 @@ export class NgWhen {
   /** @internal */
   private _prevCondition: any = null;
   // TODO remove _prevCondition, the viewRef is enough.
-  private _viewRef: EmbeddedViewRef = null;
+  private _viewRef: EmbeddedViewRef<NgWhenPayload> = null;
 
-  constructor(private _viewContainer: ViewContainerRef, private _templateRef: TemplateRef,
+  constructor(private _viewContainer: ViewContainerRef, private _templateRef: TemplateRef<NgWhenPayload>,
               private _cdr: ChangeDetectorRef) { }
 
   set ngWhenIs(newCondition: any) {
     if (presentNotFalse(newCondition) && !presentNotFalse(this._prevCondition)) {
       this._viewRef = this._viewContainer.createEmbeddedView(this._templateRef);
-      this._viewRef.setLocal('\$implicit', newCondition);
+      this._viewRef.context.$implicit = newCondition;
     } else if (!presentNotFalse(newCondition) && presentNotFalse(this._prevCondition)) {
       this._viewContainer.clear();
       this._viewRef = null;
     }
     this._prevCondition = newCondition;
     if (presentNotFalse(newCondition)) {
-      this._viewRef.setLocal('\$implicit', newCondition);
+      this._viewRef.context.$implicit = newCondition;
     }
   }
 
-  set ngWhenTemplate(value: TemplateRef) {
+  set ngWhenTemplate(value: TemplateRef<NgWhenPayload>) {
     if (isPresent(value)) {
       this._templateRef = value;
     }

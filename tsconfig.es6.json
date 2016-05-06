@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "CommonJS",
+    "target": "es6",
+    "module": "es6",
+    "outDir": "esm",
     "noImplicitAny": true,
     "preserveConstEnums": true,
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
     "declaration": true
   },
   "files": [
-    "index.ts",
-    "typings/browser.d.ts",
-    "node_modules/angular2/typings/browser.d.ts",
-    "node_modules/zone.js/dist/zone.js.d.ts"
+    "ts/index.ts",
+    "typings/browser/ambient/firebase/index.d.ts"
   ]
 }

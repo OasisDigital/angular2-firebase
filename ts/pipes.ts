@@ -3,7 +3,7 @@
 //     written by Kyle Cordes - http://kylecordes.com
 // started November 2015
 
-import {Pipe, PipeTransform} from 'angular2/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import "rxjs/add/operator/map";

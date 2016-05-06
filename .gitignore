@@ -1,8 +1,9 @@
 node_modules/
 typings/
-dist/
 *.log
 *.tgz
 *.d.ts
 *.js
 *.map
+local-*
+bundle/
