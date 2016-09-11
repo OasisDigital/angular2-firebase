@@ -6,7 +6,6 @@
 import {Directive} from '@angular/core';
 import {DoCheck, ChangeDetectorRef, EmbeddedViewRef} from '@angular/core';
 import {ViewContainerRef, TemplateRef, ViewRef} from '@angular/core';
-import {isPresent, isBlank} from '@angular/common/src/facade/lang';
 
 
 export class NgWhenPayload {
@@ -60,6 +59,10 @@ export class NgWhenPayload {
  * See a [live demo](TODO) for a more detailed
  * example.
  */
+
+function isPresent(obj: any): boolean {
+  return obj !== undefined && obj !== null;
+}
 
 function presentNotFalse(x: any) {
   return isPresent(x) && x !== false;
