@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["es6", "dom"],
     "target": "es5",
     "outDir": ".",
     "noImplicitAny": true,
@@ -11,7 +12,9 @@
     "declaration": true
   },
   "files": [
-    "ts/index.ts",
-    "typings/browser.d.ts"
+    "ts/index.ts"
+  ],
+  "typeRoots": [
+    "../node_modules/@types"
   ]
 }

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["es6", "dom"],
     "target": "es6",
     "module": "es6",
     "outDir": "esm",
@@ -12,7 +13,9 @@
     "declaration": true
   },
   "files": [
-    "ts/index.ts",
-    "typings/browser/ambient/firebase/index.d.ts"
+    "ts/index.ts"
+  ],
+  "typeRoots": [
+    "../node_modules/@types"
   ]
 }

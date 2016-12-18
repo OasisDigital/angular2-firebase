@@ -1,6 +1,6 @@
 {
   "name": "angular2-firebase",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Angular 2 Adapter for Firebase",
   "keywords": [
     "angular2",
@@ -10,28 +10,26 @@
   "main": "index.js",
   "jsnext:main": "esm/index.js",
   "scripts": {
-    "typings": "typings install",
     "tsc:es5": "tsc -p tsconfig.es5.json",
     "tsc:es6": "tsc -p tsconfig.es6.json",
     "tsc:umd": "rollup esm/index.js -f umd -n angular2firebase -o bundle/angular2-firebase.umd.js",
-    "prepublish": "npm-run-all typings tsc:es5 tsc:es6 tsc:umd"
+    "prepublish": "npm-run-all tsc:es5 tsc:es6 tsc:umd"
   },
   "author": "Kyle Cordes <kyle.cordes@oasisdigital.com>",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@angular/common": "^2.0.0-rc.6",
-    "@angular/core": "^2.0.0-rc.6",
-    "rxjs": "^5.0.0-beta.11",
-    "zone.js": "^0.6.17"
+    "@angular/common": "^2.3.1",
+    "@angular/core": "^2.3.1",
+    "rxjs": "^5.0.0-rc.4"
   },
   "devDependencies": {
-    "@angular/common": "2.0.0-rc.6",
-    "@angular/core": "2.0.0-rc.6",
+    "@angular/common": "^2.3.1",
+    "@angular/core": "^2.3.1",
+    "@types/firebase": "^2.4.30",
     "npm-run-all": "^1.8.0",
     "rollup": "^0.35.3",
-    "rxjs": "5.0.0-beta.11",
-    "typescript": "^1.8.10",
-    "typings": "^0.7.12",
-    "zone.js": "^0.6.17"
+    "rxjs": "5.0.0-rc.4",
+    "typescript": "^2.0.10",
+    "zone.js": "^0.7.2"
   }
 }
