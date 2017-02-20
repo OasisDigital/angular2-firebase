@@ -1,25 +1,26 @@
-# Angular 2 Firebase Tools
+# DEPRECATED - Angular 2 Firebase Tools
 
-## A Third Party A2-Firebase Library
+## Use this instead:
 
-There is an official Angular 2 <-> Firebase library in developent by the
-team at Firebase / Google:
+There is an official Angular 2 <-> Firebase library now (as of 2017) in find
+condition for real use, implemented by the team at Firebase / Google:
 
 https://angularfire2.com/
 
 https://github.com/angular/angularfire2
 
-If you are just getting started with Angular 2 and Firebase,
-you should probably use that library. It certainly has more documentation
+You should probably use that library. It certainly has more documentation
 and features than this one.
 
-This third-party library still exists because:
+# Old, Third Party A2-Firebase Library
+
+This third-party library existed because:
 
 * I started well before the official library.
-* I have a couple of applications using it.
+* I was able to get applications up and running with it.
 * It has a considerably more minimal approach, contrasting the
-  "wrap every outside thing in an Angular thing"
-  approach used by the above link library and many other libraries out there.
+  "wrap outside things in Angular thing"
+  approach used by angularfire2.
 
 ## Introduction
 
